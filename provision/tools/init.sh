@@ -6,4 +6,5 @@ cp /vagrant/tools/.git-completion ~/
 sudo apt install -y libpcre3-dev \
   gcc \
   make \
-  git
+  git \
+  vim
