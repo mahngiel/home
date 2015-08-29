@@ -9,6 +9,11 @@ sudo apt install -y libpcre3-dev \
   git \
   vim \
   ruby \
-  gem
+  gem \
+  nodejs \
+  npm
 
 sudo gem install sass
+sudo npm install --global gulp
+sudo npm install gulp --save-dev
+sudo npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del --save-dev

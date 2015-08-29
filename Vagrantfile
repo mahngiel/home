@@ -6,9 +6,10 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "mahngiel"
   config.vm.box_check_update = false
   config.vm.network "forwarded_port", guest: 9001, host: 9001
+  config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "private_network", ip: "192.168.30.100"
-  config.vm.synced_folder "./provision", "/vagrant/"
-  config.vm.synced_folder "./Home", "/Web/Home"
+  config.vm.synced_folder "./provision", "/vagrant/", owner: "vagrant", group: "www-data"
+  config.vm.synced_folder "./Home", "/Web/Home", owner: "vagrant", group: "www-data"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
