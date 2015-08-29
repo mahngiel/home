@@ -7,4 +7,8 @@ sudo apt install -y libpcre3-dev \
   gcc \
   make \
   git \
-  vim
+  vim \
+  ruby \
+  gem
+
+sudo gem install sass
