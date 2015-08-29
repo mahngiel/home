@@ -7,13 +7,13 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = false
   config.vm.network "forwarded_port", guest: 9001, host: 9001
   config.vm.network "private_network", ip: "192.168.30.100"
-  config.vm.synced_folder "./", "/Web/Home"
+  config.vm.synced_folder "./", "/Web/"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
-    vb.gui = true
+    vb.gui = false
     #   # Customize the amount of memory on the VM:
-    vb.memory = "1024"
+    vb.memory = "2048"
   end
 
   config.vm.provision :shell, path: "provision/bootstrap.sh"
