@@ -58,6 +58,7 @@ Session.vim
 *~
 
 
+/Home/.env
 ### Vagrant template
 .vagrant/
 
