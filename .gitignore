@@ -68,5 +68,6 @@ Session.vim
 /config/development/
 
 
+/Home/vendor
 
 *.rdb
