@@ -1,15 +1,15 @@
 <?php
 
-defined('APP_PATH') || define('APP_PATH', realpath('.'));
+defined( 'APP_PATH' ) || define( 'APP_PATH', realpath( '.' ) );
 
-return new \Phalcon\Config(array(
-    'database' => array(
-        'adapter'     => 'Mysql',
-        'host'        => getenv('DB_HOST'),
-        'username'    => getenv('DB_USER'),
-        'password'    => getenv('DB_PASS'),
-        'dbname'      => getenv('DB_NAME'),
-        'charset'     => 'utf8',
+return new \Phalcon\Config( array(
+    'database'    => array(
+        'adapter'  => 'Mysql',
+        'host'     => getenv( 'DB_HOST' ),
+        'username' => getenv( 'DB_USER' ),
+        'password' => getenv( 'DB_PASS' ),
+        'dbname'   => getenv( 'DB_NAME' ),
+        'charset'  => 'utf8',
     ),
     'application' => array(
         'controllersDir' => APP_PATH . '/app/controllers/',
@@ -20,5 +20,6 @@ return new \Phalcon\Config(array(
         'libraryDir'     => APP_PATH . '/app/library/',
         'cacheDir'       => APP_PATH . '/app/cache/',
         'baseUri'        => '/Home/',
+        'debug'          => true
     )
-));
+) );
