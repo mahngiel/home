@@ -9,7 +9,7 @@ sudo cp /vagrant/provision/phalcon/30-phalcon.ini /etc/php5/cli/conf.d/
 
 sudo service php5-fpm restart
 
-sudo git clone git://github.com/phalcon/phalcon-devtools.git /opt/phalcon-devto0ls
+sudo git clone git://github.com/phalcon/phalcon-devtools.git /opt/phalcon-devtools
 cd /opt/phaclon-devtools
 sudo ./phalcon.sh
 
