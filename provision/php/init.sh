@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install -y php5-dev \
+sudo apt-get install -y php5-dev \
   php5-mysql \
   php5-fpm
 
@@ -10,7 +10,8 @@ sudo phpize
 sudo ./configure --enable-xdebug
 sudo make
 
-sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php5/fpm/conf.d/
-sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php5/cli/conf.d/
+sudo cp /vagrant/php/30-xdebug.ini /etc/php5/fpm/conf.d/
+sudo cp /vagrant/php/30-xdebug.ini /etc/php5/apache2/conf.d/
+sudo cp /vagrant/php/30-xdebug.ini /etc/php5/cli/conf.d/
 
 sudo service php5-fpm restart

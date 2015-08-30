@@ -2,8 +2,11 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-echo "Installing MySQL 5.5 ..."
-sudo apt install -y mysql-server-5.5
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+
+echo "Installing MySQL 5.6 ..."
+sudo apt-get install -y mysql-server-5.6
 
 sudo sed -i "s/127.0.0.1/192.168.30.100/g" /etc/mysql/my.cnf
 sudo service mysql restart
