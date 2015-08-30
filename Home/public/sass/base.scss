@@ -1,15 +1,99 @@
-html{
-  box-sizing : border-box;
-  height     : 100%;
+@import "materialize";
+$btnZIndex : 3000;
+$btnHeight : $button-height;
+$btnWidth : $button-height * 6;
+$btnBGColor : $button-color;
+$btnTextColor : color('blue-grey', 'lighten-4');
+
+#leftSideActions{
+  margin : 100px 0 0;
+
+  .btn-item{
+    margin-bottom : $btnHeight / 2;
+    height        : $btnHeight;
+  }
 }
-*, *:before, *:after{
-  box-sizing : inherit;
-}
-body{
-  background-color : #f8f8f8;
-  color            : #444;
-  font-size: 1em;
-}
-a{
-  color: orange;
+
+.btn-contain{
+  position         : relative;
+  margin-right     : $btnHeight;
+  background-color : $btnBGColor;
+  width            : $btnWidth;
+  height           : $btnHeight;
+  z-index          : $btnZIndex;
+
+  .btn-caret{
+    position         : absolute;
+    height           : 0;
+    width            : 0;
+    background-color : $btnTextColor;
+    z-index          : $btnZIndex + 1;
+
+    &.bottom-right{
+      right         : 0;
+      bottom        : 0;
+      border-bottom : $btnHeight / 3 solid $btnTextColor;
+      border-left   : $btnHeight / 3 solid $btnBGColor;
+    }
+    &.top-right{
+      right       : 0;
+      top         : 0;
+      border-top  : $btnHeight / 3 solid $btnTextColor;
+      border-left : $btnHeight / 3 solid $btnBGColor;
+    }
+    &.bottom-left{
+      left          : 0;
+      bottom        : 0;
+      border-bottom : $btnHeight / 3 solid $btnTextColor;
+      border-right  : $btnHeight / 3 solid $btnBGColor;
+    }
+    &.top-left{
+      left         : 0;
+      top          : 0;
+      border-top   : $btnHeight / 3 solid $btnTextColor;
+      border-right : $btnHeight / 3 solid $btnBGColor;
+    }
+  }
+
+  .center-caret{
+    position         : absolute;
+    background-color : $btnTextColor;
+    z-index          : $btnZIndex + 2;
+    width            : $btnHeight / 3 * 2;
+    height           : $btnHeight;
+    left             : $btnWidth / 2 - ($btnHeight / 3 );
+  }
+
+  .btn-text{
+    display          : block;
+    color            : $button-color-raised;
+    position         : absolute;
+    right            : 2px;
+    top              : 2px;
+    text-align       : center;
+    text-transform   : uppercase;
+    font-weight      : 600;
+    z-index          : $btnZIndex+3;
+    height           : $btnHeight - 4;
+    width            : $btnWidth - 4;
+    background-color : $btnBGColor;
+    line-height      : $btnHeight - 4;
+  }
+
+  .btn{
+    position       : absolute;
+    right          : 2px;
+    top            : 2px;
+    text-transform : uppercase;
+    font-weight    : 600;
+    z-index        : $btnZIndex + 3;
+    height         : $btnHeight - 4;
+    width          : $btnWidth - 4;
+    line-height    : $btnHeight - 4;
+  }
+  &:after{
+    display : block;
+    clear   : both;
+    content : '';
+  }
 }

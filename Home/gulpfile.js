@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function() {
   return sass('public/sass/base.scss', { style: 'expanded' })
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    //.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(minifycss())
     .pipe(gulp.dest('public/css'));
 });
@@ -33,12 +33,12 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
 
   // Watch .scss files
-  gulp.watch('public/sass/*.scss', ['clean','styles']);
+  gulp.watch('public/sass/**', ['clean','styles']);
 
   // Create LiveReload server
-  livereload.listen();
+  //livereload.listen();
 
-  // Watch any files in dist/, reload on change
-  gulp.watch(['public/sass/**']).on('change', livereload.changed);
+  // Watch any files in saas/, reload on change
+  //gulp.watch(['public/sass/**'], ['clean','styles']).on('change', livereload.changed);
 
 });
