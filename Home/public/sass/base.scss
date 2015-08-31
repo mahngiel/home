@@ -5,6 +5,7 @@ $btnWidth : $button-height * 6;
 $btnBGColor : $button-color;
 $btnTextColor : color('blue-grey', 'lighten-4');
 
+*{ position : relative; }
 #leftSideActions{
   margin : 100px 0 0;
 
@@ -13,7 +14,6 @@ $btnTextColor : color('blue-grey', 'lighten-4');
     height        : $btnHeight;
   }
 }
-
 .btn-contain{
   position         : relative;
   margin-right     : $btnHeight;
@@ -95,5 +95,45 @@ $btnTextColor : color('blue-grey', 'lighten-4');
     display : block;
     clear   : both;
     content : '';
+  }
+}
+nav#brand{
+  height      : $navbar-height;
+  line-height : $navbar-height / 3;
+}
+$termHeight : 600px;
+$termLineHeight : 18px;
+$termFontSize : $termLineHeight - 2;
+#letsPlayTerminal{
+  position         : absolute;
+  background-color : black;
+  top              : 0;
+  right            : 0;
+  bottom           : 0;
+  left             : 0;
+  height           : $termHeight;
+  font-family      : monospace, monospace;
+  color            : #FFF;
+  font-size        : $termFontSize;
+
+  .line{
+    display   : block;
+    height    : $termLineHeight;
+    font-size : $termLineHeight - 2;
+  }
+
+  #tty{
+    height : $termHeight - $termLineHeight * 2;
+  }
+  #prompt{
+    height: $termLineHeight * 2;
+    width: 100%;
+
+    #cursor{
+      width: $termFontSize;
+      margin-left: -1 * $termFontSize / 2;
+      background-color: #FFF;
+      opacity: .75;
+    }
   }
 }

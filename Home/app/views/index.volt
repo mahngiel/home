@@ -9,7 +9,13 @@
     </head>
     <body>
         <header>
-            <nav></nav>
+            <nav id="brand">
+                <section class="brand-line">
+                    <div class="left">
+                        <div> Kris Reeck</div>
+                    </div>
+                </section>
+            </nav>
         </header>
         <main>
             <div class="row">
@@ -52,30 +58,38 @@
                 </div>
                 <div class="col s9">
                     <div class="row">
-                        <div class="col s9">{{ content() }}</div>
-                        <div class="col s3">
-                            <ul class="collapsible popout" data-collapsible="accordion">
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First
+                        <div class="col s9">
+                            <div id="letsPlayTerminal">
+                                <div id="tty">
+                                    <div class="line">The programs included with the Debian GNU/Linux system are free software;</div>
+                                    <div class="line">the exact distribution terms for each program are described in the</div>
+                                    <div class="line">individual files in /usr/share/doc/*/copyright.</div>
+                                    <div class="line"></div>
+                                    <div class="line">Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent</div>
+                                    <div class="line">permitted by applicable law.</div>
+                                    <div class="line"></div>
+                                </div>
+                                <div id="prompt" class="valign">
+                                    <div id="whoami" class="left line">
+                                        <span class="teal-text">user</span>
+                                        <span class="red-text">[hostname]</span>
+                                        <span class="white-text"> $&nbsp;</span>
                                     </div>
-                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-                                </li>
-                            </ul>
+                                    <div id="lptInput" class="line left">
+                                        <span id="stdin" contenteditable="true"></span>
+                                        <span id="cursor">&nbsp;</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col s3"></div>
                     </div>
                 </div>
             </div>
         </main>
         <footer></footer>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/letsPlayTerminal.js"></script>
         <script type="text/javascript" src="js/vendor/materialize/bin/materialize.min.js"></script>
     </body>
 </html>
