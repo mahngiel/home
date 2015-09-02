@@ -19,16 +19,22 @@ $termFontSize : $termLineHeight - 2;
 
   #stdout{
     .line{
-      display   : block;
-      height    : $termLineHeight;
-      font-size : $termLineHeight - 2;
-      color: purple;
+      display     : block;
+      line-height : $termLineHeight;
+      font-size   : $termLineHeight - 2;
+      color       : purple;
     }
   }
 
   #prompt{
     height : $termLineHeight * 2;
     width  : 100%;
+
+    #stdin {
+      word-break: break-all;
+      word-wrap: break-word;
+      display: inline-block;
+    }
 
     #cursor{
       width            : $termFontSize;

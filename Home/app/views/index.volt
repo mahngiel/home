@@ -18,17 +18,14 @@
             <div class="row">
                 <div class="col s12">
                     <div id="letsPlayTerminal">
-                        <div id="stdout">
-                        </div>
+                        <div id="stdout"></div>
                         <div id="prompt" class="valign">
                             <div id="ps1" class="left line">
                                 <span class="teal-text">user</span>
                                 <span class="red-text">[hostname]</span>
                             </div>
-                            <div id="lptInput" class="line left">
-                                <span id="stdin" contenteditable="true"></span>
-                                <span id="cursor">$&nbsp;</span>
-                            </div>
+                            <span id="stdin" contenteditable="true"></span>
+                            <span id="cursor"></span>
                         </div>
                     </div>
                 </div>
@@ -38,6 +35,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
         <script type="text/javascript" src="js/letsPlayTerminal.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/vendor/materialize/bin/materialize.min.js"></script>
     </body>
 </html>
