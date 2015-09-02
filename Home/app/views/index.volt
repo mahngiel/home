@@ -24,7 +24,7 @@
                                 <span class="teal-text">user</span>
                                 <span class="red-text">[hostname]</span>
                             </div>
-                            <span id="stdin" contenteditable="true"></span>
+                            &nbsp;<span id="stdin" contenteditable="true"></span>
                             <span id="cursor"></span>
                         </div>
                     </div>

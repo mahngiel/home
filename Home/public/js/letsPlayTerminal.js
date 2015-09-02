@@ -31,7 +31,7 @@ var letsPlay = (function ( parent, jQ, siteParams, undefined ) {
         var outputText = text;
 
         if( withPrompt ){
-            outputText = shell.PS1.html() + outputText;
+            outputText = shell.PS1.html() + '<span class="white-text">'+outputText+'</span>';
         }
 
         jQ( '<div/>', { class: 'line', html: outputText} ).appendTo( letsPlay.Stdout );

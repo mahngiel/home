@@ -23,6 +23,10 @@ $termFontSize : $termLineHeight - 2;
       line-height : $termLineHeight;
       font-size   : $termLineHeight - 2;
       color       : purple;
+
+      span{
+        display : inline-block;
+      }
     }
   }
 
@@ -30,17 +34,20 @@ $termFontSize : $termLineHeight - 2;
     height : $termLineHeight * 2;
     width  : 100%;
 
-    #stdin {
-      word-break: break-all;
-      word-wrap: break-word;
-      display: inline-block;
+    #stdin{
+      word-break : break-all;
+      word-wrap  : break-word;
+      display    : inline-block;
+      outline    : none;
     }
 
     #cursor{
-      width            : $termFontSize;
+      width            : $termFontSize / 2;
+      height           : $termFontSize - 2;
       margin-left      : -1 * $termFontSize / 2;
       background-color : #FFF;
-      opacity          : .75;
+      display          : inline-block;
+      vertical-align   : baseline;
     }
   }
 }
