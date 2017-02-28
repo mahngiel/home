@@ -10,7 +10,6 @@ sudo phpize
 sudo ./configure --enable-xdebug
 sudo make
 
-sudo cp /vagrant/php/30-xdebug.ini /etc/php/7.0/fpm/conf.d/
-sudo cp /vagrant/php/30-xdebug.ini /etc/php/7.0/apache2/conf.d/
-sudo cp /vagrant/php/30-xdebug.ini /etc/php/7.0/cli/conf.d/
+sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php/7.0/apache2/conf.d/
+sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php/7.0/cli/conf.d/
 

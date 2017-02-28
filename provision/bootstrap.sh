@@ -15,25 +15,24 @@ sudo apt-get install -y libpcre3-dev \
   libcurl4-gnutls-dev \
   libxml2-dev \
   libmcrypt-dev \
-  libvpx-dev \
-  && rm -rf /var/lib/apt/lists/*
+  libvpx-dev 
 
 # Install mysql
 echo "Installing MySQL..."
-/opt/mysql/init.sh
+/vagrant/provision/mysql/init.sh
 
 # Install php
 echo "Installing PHP..."
-/opt/php/init.sh
+/vagrant/provision/php/init.sh
 
 # Install apache
-/opt/apache/init.sh
+/vagrant/provision/apache/init.sh
 
 # Install phalcon
-/opt/phalcon/init.sh
+/vagrant/provision/phalcon/init.sh
 
 # Install redis
-/opt/redis/init.sh
+/vagrant/provision/redis/init.sh
 
 # Install tools
-/opt/tools/init.sh
+#/vagrant/provision/tools/init.sh

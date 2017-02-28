@@ -4,9 +4,8 @@ sudo git clone --depth=1 git://github.com/phalcon/cphalcon.git /opt/cphalcon
 cd /opt/cphalcon/build
 sudo ./install
 
-sudo cp /vagrant/phalcon/30-phalcon.ini /etc/php5/fpm/conf.d/
-sudo cp /vagrant/phalcon/30-phalcon.ini /etc/php5/apache2/conf.d/
-sudo cp /vagrant/phalcon/30-phalcon.ini /etc/php5/cli/conf.d/
+sudo cp /vagrant/provision/phalcon/30-phalcon.ini /etc/php/7.0/apache2/conf.d/
+sudo cp /vagrant/provision/phalcon/30-phalcon.ini /etc/php/7.0/cli/conf.d/
 
 sudo service apache2 restart
 
