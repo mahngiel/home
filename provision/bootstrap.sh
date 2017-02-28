@@ -7,27 +7,33 @@ sudo apt-get install -y libpcre3-dev \
   gcc \
   make \
   git \
-  vim
+  vim \
+  zlib1g-dev \
+  libjpeg-dev \
+  libpng-dev \
+  libfreetype6-dev \
+  libcurl4-gnutls-dev \
+  libxml2-dev \
+  libmcrypt-dev \
+  libvpx-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 # Install mysql
 echo "Installing MySQL..."
-/vagrant/mysql/init.sh
+/opt/mysql/init.sh
 
 # Install php
 echo "Installing PHP..."
-/vagrant/php/init.sh
+/opt/php/init.sh
 
 # Install apache
-/vagrant/apache/init.sh
-
-# Install nginx
-#exec /vagrant/nginx/init.sh
+/opt/apache/init.sh
 
 # Install phalcon
-/vagrant/phalcon/init.sh
+/opt/phalcon/init.sh
 
 # Install redis
-/vagrant/redis/init.sh
+/opt/redis/init.sh
 
 # Install tools
-/vagrant/tools/init.sh
+/opt/tools/init.sh
