@@ -1,139 +1,53 @@
 @import "materialize";
-$btnZIndex : 3000;
-$btnHeight : $button-height;
-$btnWidth : $button-height * 6;
-$btnBGColor : $button-color;
-$btnTextColor : color('blue-grey', 'lighten-4');
-
 *{ position : relative; }
-#leftSideActions{
-  margin : 100px 0 0;
-
-  .btn-item{
-    margin-bottom : $btnHeight / 2;
-    height        : $btnHeight;
-  }
+html, body{
+  background-color : black;
 }
-.btn-contain{
-  position         : relative;
-  margin-right     : $btnHeight;
-  background-color : $btnBGColor;
-  width            : $btnWidth;
-  height           : $btnHeight;
-  z-index          : $btnZIndex;
-
-  .btn-caret{
-    position         : absolute;
-    height           : 0;
-    width            : 0;
-    background-color : $btnTextColor;
-    z-index          : $btnZIndex + 1;
-
-    &.bottom-right{
-      right         : 0;
-      bottom        : 0;
-      border-bottom : $btnHeight / 3 solid $btnTextColor;
-      border-left   : $btnHeight / 3 solid $btnBGColor;
-    }
-    &.top-right{
-      right       : 0;
-      top         : 0;
-      border-top  : $btnHeight / 3 solid $btnTextColor;
-      border-left : $btnHeight / 3 solid $btnBGColor;
-    }
-    &.bottom-left{
-      left          : 0;
-      bottom        : 0;
-      border-bottom : $btnHeight / 3 solid $btnTextColor;
-      border-right  : $btnHeight / 3 solid $btnBGColor;
-    }
-    &.top-left{
-      left         : 0;
-      top          : 0;
-      border-top   : $btnHeight / 3 solid $btnTextColor;
-      border-right : $btnHeight / 3 solid $btnBGColor;
-    }
-  }
-
-  .center-caret{
-    position         : absolute;
-    background-color : $btnTextColor;
-    z-index          : $btnZIndex + 2;
-    width            : $btnHeight / 3 * 2;
-    height           : $btnHeight;
-    left             : $btnWidth / 2 - ($btnHeight / 3 );
-  }
-
-  .btn-text{
-    display          : block;
-    color            : $button-color-raised;
-    position         : absolute;
-    right            : 2px;
-    top              : 2px;
-    text-align       : center;
-    text-transform   : uppercase;
-    font-weight      : 600;
-    z-index          : $btnZIndex+3;
-    height           : $btnHeight - 4;
-    width            : $btnWidth - 4;
-    background-color : $btnBGColor;
-    line-height      : $btnHeight - 4;
-  }
-
-  .btn{
-    position       : absolute;
-    right          : 2px;
-    top            : 2px;
-    text-transform : uppercase;
-    font-weight    : 600;
-    z-index        : $btnZIndex + 3;
-    height         : $btnHeight - 4;
-    width          : $btnWidth - 4;
-    line-height    : $btnHeight - 4;
-  }
-  &:after{
-    display : block;
-    clear   : both;
-    content : '';
-  }
-}
-nav#brand{
-  height      : $navbar-height;
-  line-height : $navbar-height / 3;
-}
-$termHeight : 600px;
-$termLineHeight : 18px;
+$termLineHeight : 16px;
 $termFontSize : $termLineHeight - 2;
+
 #letsPlayTerminal{
   position         : absolute;
-  background-color : black;
+  background-color : blue;
   top              : 0;
   right            : 0;
   bottom           : 0;
   left             : 0;
-  height           : $termHeight;
-  font-family      : monospace, monospace;
+  font-family      : 'Source Code Pro', monospace;
   color            : #FFF;
   font-size        : $termFontSize;
 
-  .line{
-    display   : block;
-    height    : $termLineHeight;
-    font-size : $termLineHeight - 2;
+  #stdout{
+    .line{
+      display     : block;
+      line-height : $termLineHeight;
+      font-size   : $termLineHeight - 2;
+      color       : purple;
+
+      span{
+        display : inline-block;
+      }
+    }
   }
 
-  #tty{
-    height : $termHeight - $termLineHeight * 2;
-  }
   #prompt{
-    height: $termLineHeight * 2;
-    width: 100%;
+    height : $termLineHeight * 2;
+    width  : 100%;
+
+    #stdin{
+      word-break : break-all;
+      word-wrap  : break-word;
+      display    : inline-block;
+      outline    : none;
+    }
 
     #cursor{
-      width: $termFontSize;
-      margin-left: -1 * $termFontSize / 2;
-      background-color: #FFF;
-      opacity: .75;
+      width            : $termFontSize / 2;
+      height           : $termFontSize - 2;
+      margin-left      : -1 * $termFontSize / 2;
+      background-color : #FFF;
+      display          : inline-block;
+      vertical-align   : baseline;
     }
   }
 }
