@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-sudo apt-get install -y apache2
+sudo apt-get install -y \
+  apache2 \
+  libapache2-mod-php7.0
 
 sudo a2enmod \
   headers \

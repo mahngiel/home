@@ -15,7 +15,7 @@ sudo apt-get install -y libpcre3-dev \
   libcurl4-gnutls-dev \
   libxml2-dev \
   libmcrypt-dev \
-  libvpx-dev 
+  libvpx-dev
 
 # Install mysql
 echo "Installing MySQL..."
