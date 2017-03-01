@@ -2,7 +2,9 @@
 
 sudo apt-get install -y \
   php7.0-dev \
-  php7.0-mysql
+  php7.0-mysql \
+  php7.0-zip \
+  php7.0-mbstring
 
 sudo git clone --depth=1 git://github.com/xdebug/xdebug.git /opt/xdebug
 cd /opt/xdebug

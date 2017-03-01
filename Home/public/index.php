@@ -33,7 +33,7 @@ try
 
     echo $application->handle()->getContent();
 }
-catch ( \Exception $e )
+catch ( \Throwable $e )
 {
     echo $e->getMessage();
 }
