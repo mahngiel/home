@@ -1,39 +1,36 @@
 <?php
 
-error_reporting( E_ALL );
+error_reporting(E_ALL);
 
-define( 'APP_PATH', realpath( '..' ) );
+define('APP_PATH', realpath('..'));
 
-try
-{
-    require APP_PATH . '/vendor/autoload.php';
+require APP_PATH . '/vendor/autoload.php';
 
-    // Env vars
-    $env = new Dotenv\Dotenv( APP_PATH );
+$whoops = new \Whoops\Run();
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+$whoops->register();
 
-    /**
-     * Read the configuration
-     */
-    $config = include APP_PATH . "/app/config/config.php";
+// Env vars
+$env = new Dotenv\Dotenv(APP_PATH);
 
-    /**
-     * Read auto-loader
-     */
-    include APP_PATH . "/app/config/loader.php";
+/**
+ * Read the configuration
+ */
+$config = include APP_PATH . "/app/config/config.php";
 
-    /**
-     * Read services
-     */
-    include APP_PATH . "/app/config/services.php";
+/**
+ * Read auto-loader
+ */
+include APP_PATH . "/app/config/loader.php";
 
-    /**
-     * Handle the request
-     */
-    $application = new \Phalcon\Mvc\Application( $di );
+/**
+ * Read services
+ */
+include APP_PATH . "/app/config/services.php";
 
-    echo $application->handle()->getContent();
-}
-catch ( \Throwable $e )
-{
-    echo $e->getMessage();
-}
+/**
+ * Handle the request
+ */
+$application = new \Phalcon\Mvc\Application($di);
+
+echo $application->handle()->getContent();
