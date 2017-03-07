@@ -2,14 +2,14 @@
 
 echo "Installing redis server"
 cd /opt
-sudo wget http://download.redis.io/releases/redis-3.2.8.tar.gz
-sudo tar -xzvf redis-3.2.8.tar.gz
+wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+tar -xzvf redis-3.2.8.tar.gz
 cd redis-3.2.8
-sudo make
-sudo make install
+make
+make install
 
-sudo cp /vagrant/provision/redis/redis_init_script /etc/init.d/redis_6379
-sudo cp /vagrant/provision/redis/redis.conf /etc/redis.conf
+cp /srv/mahngiel/provision/redis/redis_init_script /etc/init.d/redis_6379
+cp /srv/mahngiel/provision/redis/redis.conf /etc/redis.conf
 
-sudo update-rc.d redis_6379 defaults
-sudo /etc/init.d/redis_6379 start
+update-rc.d redis_6379 defaults
+/etc/init.d/redis_6379 start

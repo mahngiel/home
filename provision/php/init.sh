@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 
-sudo apt-get install -y \
-  php7.0-dev \
-  php7.0-mysql \
-  php7.0-zip \
-  php7.0-mbstring
+cp /srv/mahngiel/provision/php/php.ini $PHP_INI_DIR/php.ini
 
-sudo git clone --depth=1 git://github.com/xdebug/xdebug.git /opt/xdebug
+git clone --depth=1 git://github.com/xdebug/xdebug.git /opt/xdebug
 cd /opt/xdebug
-sudo phpize
-sudo ./configure --enable-xdebug
-sudo make
+phpize
+./configure --enable-xdebug
+make
 
-sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php/7.0/apache2/conf.d/
-sudo cp /vagrant/provision/php/30-xdebug.ini /etc/php/7.0/cli/conf.d/
+cp /srv/mahngiel/provision/php/30-xdebug.ini $PHP_INI_DIR/conf.d/
 

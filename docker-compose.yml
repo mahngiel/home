@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  mahngiel:
+    build: .
+    image: php:7.1-apache
+    volumes:
+      - .:/srv/mahngiel
+    ports:
+      - 80:80
+      - 443:443
+      - 9000:9000
+    environment:
+      - _environment=local
+    entrypoint:
+      - /srv/mahngiel/provision/entrypoint.sh
