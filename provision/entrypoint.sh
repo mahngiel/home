@@ -1,28 +1,29 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Local development runtime concerns
-if [ ${_environment} == "local" ]; then
+if [ ${_environment} == "local" ]
+then
     echo "WORKING LOCALLY"
 
     # Install mysql
     echo "Installing MySQL..."
-#    /srv/mahngiel/provision/mysql/init.sh
+    /srv/mahngiel/provision/mysql/init.sh
 
     # Install php
     echo "Installing PHP..."
     /srv/mahngiel/provision/php/init.sh
+    /srv/mahngiel/provision/php/xdebug.sh
 
     # Install apache
-#    /srv/mahngiel/provision/apache/init.sh
+    /srv/mahngiel/provision/apache/init.sh
 
     # Install phalcon
-#    /srv/mahngiel/provision/phalcon/init.sh
+    /srv/mahngiel/provision/phalcon/init.sh
 
     # Install redis
-#    /srv/mahngiel/provision/redis/init.sh
+    /srv/mahngiel/provision/redis/init.sh
 
     # Install tools
-    #/vagrant/provision/tools/init.sh
 fi
 
 apache2-foreground

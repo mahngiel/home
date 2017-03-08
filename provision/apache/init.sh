@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-rm /etc/apache2/sites-enabled/*
+cp /srv/mahngiel/provision/apache/apache2.conf $APACHE_CONFDIR/
 
-cp /srv/mahngiel/provision/apache/home.conf /etc/apache2/sites-enabled/home.conf
+rm $APACHE_CONFDIR/sites-enabled/*
 
-service apache2 reload
+cp /srv/mahngiel/provision/apache/home.conf $APACHE_CONFDIR/sites-enabled/home.conf
+

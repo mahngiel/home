@@ -1555,8 +1555,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0",
-        "ext-phalcon": "*"
+        "php": ">=7.0"
     },
     "platform-dev": []
 }

@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.0-apache
 
 MAINTAINER Mahngiel <kris@mahngiel.com>
 
@@ -19,7 +19,8 @@ RUN apt-get update -y \
   vim \
   zlib1g-dev \
   bash \
-  git
+  git \
+  wget
 
 # Phpize extensions
 RUN docker-php-ext-install -j$(nproc) \

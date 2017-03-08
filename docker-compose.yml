@@ -3,7 +3,7 @@ version: "2"
 services:
   mahngiel:
     build: .
-    image: php:7.1-apache
+    image: php:7.0-apache
     volumes:
       - .:/srv/mahngiel
     ports:
