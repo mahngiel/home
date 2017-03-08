@@ -1,11 +1,15 @@
+/**
+ * Terminal class
+ */
 var letsPlay = (function (parent, jQ, siteParams, undefined) {
     var shell = {
+        // Properties
         baseUrl: siteParams.baseUrl,
         name: siteParams.name,
 
+        // DOM elements
         letsPlayTerminal: jQ('#letsPlayTerminal'),
         termInput: jQ("#lptInput"),
-
         PS1: jQ('#ps1'),
         Cursor: jQ('#cursor'),
         Stdin: jQ('#stdin'),
@@ -13,10 +17,19 @@ var letsPlay = (function (parent, jQ, siteParams, undefined) {
         Prompt: jQ("#prompt")
     };
 
+    /**
+     * Keyboard and mouse event detections
+     *
+     * @param event
+     * @returns {boolean}
+     */
     shell.detectInput = function (event) {
         return false;
     };
 
+    /**
+     * Cursor animation
+     */
     shell.animateCursor = function () {
         shell.Cursor.animate({
             opacity: 0
@@ -25,10 +38,19 @@ var letsPlay = (function (parent, jQ, siteParams, undefined) {
         }, 'fast', 'swing');
     };
 
+    /**
+     * Terminal clearing
+     */
     shell.clearInput = function () {
         letsPlay.Stdin.html('');
     };
 
+    /**
+     * Sent text to Terminal
+     *
+     * @param text
+     * @param withPrompt
+     */
     shell.output = function (text, withPrompt) {
         var outputText = text;
 
@@ -37,6 +59,13 @@ var letsPlay = (function (parent, jQ, siteParams, undefined) {
         }
 
         jQ('<div/>', {class: 'line', html: outputText}).appendTo(letsPlay.Stdout);
+    };
+
+    /**
+     * MOTD
+     */
+    shell.motd = function () {
+        return null;
     };
 
     return shell;
@@ -57,17 +86,20 @@ letsPlay.inputReader = (function (letsPlay, jQ) {
         if (e.which === ctrlKey) ctrlDown = false;
     });
 
+    // Function override
     letsPlay.detectInput = function (event) {
+        // Pressing enter
         if (event.which === 13) {
             /* Create output */
             letsPlay.output(letsPlay.Stdin.text(), true);
 
             /* Store history */
-            //letsPlay.history.push( letsPlay.Stdin.text() );
+            letsPlay.history.push(letsPlay.Stdin.text());
 
             /* Clear input */
             letsPlay.clearInput()
         }
+        // detect ctrl
         else {
             if (ctrlDown && event.which === cKey) {
                 letsPlay.output(letsPlay.Stdin.text() + '^C', true);
@@ -76,8 +108,27 @@ letsPlay.inputReader = (function (letsPlay, jQ) {
         }
     };
 
-
     return letsPlay;
 })(letsPlay || {}, jQuery);
+
+/**
+ * MOTD
+ */
+letsPlay.mottoOfTheDay = (function (letsPlay) {
+
+    letsPlay.motd = function () {
+        var joke = null;
+        // a chuck norris random joke
+        $.get("http://api.icndb.com/jokes/random", null, function (response) {
+            if (response.type !== 'success') {
+                return false;
+            }
+            letsPlay.output(response.value.joke, false);
+        }, 'json');
+
+        return joke;
+    };
+
+})(letsPlay || {});
 
 $(document).on('keydown', letsPlay.Stdin, letsPlay.detectInput);
