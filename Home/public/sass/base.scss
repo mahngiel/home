@@ -1,53 +1,59 @@
 @import "materialize";
-*{ position : relative; }
-html, body{
-  background-color : black;
+
+* {
+    position : relative;
 }
+
+html, body {
+    background-color : black;
+}
+
 $termLineHeight : 16px;
 $termFontSize : $termLineHeight - 2;
 
-#letsPlayTerminal{
-  position         : absolute;
-  background-color : blue;
-  top              : 0;
-  right            : 0;
-  bottom           : 0;
-  left             : 0;
-  font-family      : 'Source Code Pro', monospace;
-  color            : #FFF;
-  font-size        : $termFontSize;
+#letsPlayTerminal {
+    position         : absolute;
+    background-color : blue;
+    top              : 0;
+    right            : 0;
+    bottom           : 0;
+    left             : 0;
+    font-family      : 'Source Code Pro', monospace;
+    color            : #FFF;
+    font-size        : $termFontSize;
 
-  #stdout{
-    .line{
-      display     : block;
-      line-height : $termLineHeight;
-      font-size   : $termLineHeight - 2;
-      color       : purple;
+    #stdout {
+        .line {
+            display     : block;
+            line-height : $termLineHeight;
+            height      : $termLineHeight;
+            font-size   : $termLineHeight - 2;
+            color       : purple;
 
-      span{
-        display : inline-block;
-      }
-    }
-  }
-
-  #prompt{
-    height : $termLineHeight * 2;
-    width  : 100%;
-
-    #stdin{
-      word-break : break-all;
-      word-wrap  : break-word;
-      display    : inline-block;
-      outline    : none;
+            span {
+                display : inline-block;
+            }
+        }
     }
 
-    #cursor{
-      width            : $termFontSize / 2;
-      height           : $termFontSize - 2;
-      margin-left      : -1 * $termFontSize / 2;
-      background-color : #FFF;
-      display          : inline-block;
-      vertical-align   : baseline;
+    #prompt {
+        height : $termLineHeight * 2;
+        width  : 100%;
+
+        #stdin {
+            word-break : break-all;
+            word-wrap  : break-word;
+            display    : inline-block;
+            outline    : none;
+        }
+
+        #cursor {
+            width            : $termFontSize / 2;
+            height           : $termFontSize - 2;
+            margin-left      : -1 * $termFontSize / 2;
+            background-color : #FFF;
+            display          : inline-block;
+            vertical-align   : baseline;
+        }
     }
-  }
 }

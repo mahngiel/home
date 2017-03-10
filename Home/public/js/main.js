@@ -58,8 +58,8 @@ WebFontConfig = {
 $(document).ready(function () {
     letsPlay.motd();
 
-    letsPlay.Stdin.focus();
-    setInterval('letsPlay.animateCursor()', 600);
+    // letsPlay.Stdin.focus();
+    // setInterval('letsPlay.animateCursor()', 600);
 });
 
 $(document).on('click', 'html', function () {

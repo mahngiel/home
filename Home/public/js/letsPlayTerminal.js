@@ -133,6 +133,11 @@ var letsPlay = (function (parent, jQ, siteParams, undefined) {
             letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||----w&nbsp;|", false);
             letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||", false);
 
+            letsPlay.output("", false);
+            letsPlay.output("", false);
+            letsPlay.output("", false);
+
+            letsPlay.output("Mahngiel.com (c) Kris Reeck. 2017")
         }, 'json');
 
 
