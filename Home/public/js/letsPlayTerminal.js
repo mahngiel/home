@@ -74,9 +74,9 @@ var letsPlay = (function (parent, jQ, siteParams, undefined) {
 /**
  * Keypress and command reader
  */
-letsPlay.inputReader = (function (letsPlay, jQ) {
+(function (letsPlay, jQ) {
 
-    letsPlay.history = letsPlay.history || Array;
+    // letsPlay.history = letsPlay.history || Array;
 
     var ctrlDown = false, ctrlKey = 17, vKey = 86, cKey = 67;
 
@@ -94,7 +94,7 @@ letsPlay.inputReader = (function (letsPlay, jQ) {
             letsPlay.output(letsPlay.Stdin.text(), true);
 
             /* Store history */
-            letsPlay.history.push(letsPlay.Stdin.text());
+            // letsPlay.history.push(letsPlay.Stdin.text());
 
             /* Clear input */
             letsPlay.clearInput()
@@ -114,8 +114,7 @@ letsPlay.inputReader = (function (letsPlay, jQ) {
 /**
  * MOTD
  */
-letsPlay.mottoOfTheDay = (function (letsPlay) {
-
+(function (letsPlay) {
     letsPlay.motd = function () {
         var joke = null;
         // a chuck norris random joke
@@ -123,12 +122,23 @@ letsPlay.mottoOfTheDay = (function (letsPlay) {
             if (response.type !== 'success') {
                 return false;
             }
-            letsPlay.output(response.value.joke, false);
+            joke = response.value.joke;
+
+            letsPlay.output("&nbsp;" + "-".repeat(joke.length + 2), false);
+            letsPlay.output("(&nbsp;" + joke + "&nbsp;)", false);
+            letsPlay.output("&nbsp;" + "-".repeat(joke.length + 2), false);
+            letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;^__^", false);
+            letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;(oo)\_______", false);
+            letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(__)\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)\/\\", false);
+            letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||----w&nbsp;|", false);
+            letsPlay.output("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||", false);
+
         }, 'json');
 
-        return joke;
+
     };
 
+    return letsPlay;
 })(letsPlay || {});
 
 $(document).on('keydown', letsPlay.Stdin, letsPlay.detectInput);
